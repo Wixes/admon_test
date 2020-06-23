@@ -20,7 +20,7 @@ const rpushAsync = promisify(client.rpush).bind(client);
 const lrangeAsync = promisify(client.lrange).bind(client);
 
 client.on('error', function(error) {
-    console.error(error);
+    console.error('Whoops! Cannot connect to the Redis server! Error: ', error);
 });
 
 const constructQuery = (data, keys, tableID) => {
